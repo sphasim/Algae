@@ -1,101 +1,120 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <style>
-    #cycler{position:relative;}
-    #cycler img{position:absolute;z-index:1}
-    #cycler img.active{z-index:3}
-
+    #cycler {
+      position: relative;
+    }
+    
+    #cycler img {
+      position: absolute;
+      z-index: 1
+    }
+    
+    #cycler img.active {
+      z-index: 3
+    }
     /*Rahul Picture CSS*/
-  /*
+    /*
      * Center the slider by wrapping it in a container
      */
+    
     .slider-container {
-        text-align: center;
-      }
-        /*
+      text-align: center;
+    }
+    /*
          * Another container that holds the actual background of the slider,
          * with padding to make sure the handle doesn't go outside of the background.
          */
-        .slider-bg {
-            background: url('img/Tube.png');
-            height: 206px;
-            width: 28px;
-            padding-top: 20px;
-            padding-bottom: 7px;
-            margin: 0 auto;
-            
-
-           }
-            /*
+    
+    .slider-bg {
+      background: url('img/Tube.png');
+      height: 206px;
+      width: 28px;
+      padding-top: 20px;
+      padding-bottom: 7px;
+      margin: 0 auto;
+    }
+    /*
              * The actual element holding the slide handler
              */
-            .ui-slider {
-                height: 206px;
-                width: 62px;
-                background: url('img/Tube.png');
-               
-
-                // Overrides
-                 -moz-border-radius-topleft: 14px; -webkit-border-top-left-radius: 14px; -khtml-border-top-left-radius: 14px; border-top-left-radius: 14px; 
-    -moz-border-radius-topright: 14px; -webkit-border-top-right-radius: 14px; -khtml-border-top-right-radius: 14px; border-top-right-radius: 14px; 
-     -moz-border-radius-bottomleft: 14px; -webkit-border-bottom-left-radius: 14px; -khtml-border-bottom-left-radius: 14px; border-bottom-left-radius: 14px;
-    -moz-border-radius-bottomright: 14px; -webkit-border-bottom-right-radius: 14px; -khtml-border-bottom-right-radius: 14px; border-bottom-right-radius: 14px; 
-               }
-
-                .ui-slider-handle {
-                    width: 70px !important;
-                    height: 35px !important;
-
-                    background: url(img/Thumb.png) 0% 0% ! important;
-                    z-index:2;
-                    // Overrides
-                    left: 5px !important;
-                    .border-radius(0 0 0 0);
-                    border: 0px !important;
-                }
-
-                .ui-slider-range {
-                    width: 10px;
-                    background: url(img/element.png) 0% 0%;
-                    
-                }
-.ui-widget-header
-{
-    border: 1px solid #dddddd;
-    background: url(img/element.png) no-repeat 50% 50%;
-    color: #444444;
-    -moz-border-radius: 52px;
-    border-radius: 52px;
-    margin-left: 7px;
-} 
-
-.ui-widget-content{
-  border: none !important;
-}
+    
+    .ui-slider {
+      height: 206px;
+      width: 62px;
+      background: url('img/Tube.png');
+      // Overrides
+      -moz-border-radius-topleft: 14px;
+      -webkit-border-top-left-radius: 14px;
+      -khtml-border-top-left-radius: 14px;
+      border-top-left-radius: 14px;
+      -moz-border-radius-topright: 14px;
+      -webkit-border-top-right-radius: 14px;
+      -khtml-border-top-right-radius: 14px;
+      border-top-right-radius: 14px;
+      -moz-border-radius-bottomleft: 14px;
+      -webkit-border-bottom-left-radius: 14px;
+      -khtml-border-bottom-left-radius: 14px;
+      border-bottom-left-radius: 14px;
+      -moz-border-radius-bottomright: 14px;
+      -webkit-border-bottom-right-radius: 14px;
+      -khtml-border-bottom-right-radius: 14px;
+      border-bottom-right-radius: 14px;
+    }
+    
+    .ui-slider-handle {
+      width: 70px !important;
+      height: 35px !important;
+      background: url(img/Thumb.png) 0% 0% ! important;
+      z-index: 2;
+      // Overrides
+      left: 5px !important;
+      .border-radius(0 0 0 0);
+      border: 0px !important;
+    }
+    
+    .ui-slider-range {
+      width: 10px;
+      background: url(img/element.png) 0% 0%;
+    }
+    
+    .ui-widget-header {
+      border: 1px solid #dddddd;
+      background: url(img/element.png) no-repeat 50% 50%;
+      color: #444444;
+      -moz-border-radius: 52px;
+      border-radius: 52px;
+      margin-left: 7px;
+    }
+    
+    .ui-widget-content {
+      border: none !important;
+    }
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
-  <body>
-    <input id="UserInput" type="text" value="setting">
-    <button onclick="plant()">Plant</button>
-    <p id="cf_onclick">Click me to toggle</p>
-    <div id="cycler">
-      <img class="active" src="img/Consel.jpg" alt="My image" />
-      <img src="img/Tubs-black.png" alt="My image" /> 
-      <img src="img/Tubs-dark-green.png" alt="My image" /> 
-      <img src="img/Tubs-green.png" alt="My image" />  
-      <img src="img/Tubs-light-green.png" alt="My image" /> 
-      <img src="img/Tubs-brown.png" alt="My image" />  
+
+<body>
+  <input id="UserInput" type="text" value="setting">
+  <button onclick="plant()">Plant</button>
+  <p id="cf_onclick">Click me to toggle</p>
+  <div id="cycler">
+    <img class="active" src="img/Consel.jpg" alt="My image" />
+    <img src="img/Tubs-black.png" alt="My image" />
+    <img src="img/Tubs-dark-green.png" alt="My image" />
+    <img src="img/Tubs-green.png" alt="My image" />
+    <img src="img/Tubs-light-green.png" alt="My image" />
+    <img src="img/Tubs-brown.png" alt="My image" />
+  </div>
+  <div style="position:absolute;left:250px;top:100px;">
+    <div id="slider" class="slider">
     </div>
-    <div style="position:absolute;left:250px;top:100px;">
-      <div id="slider" class="slider">    
-      </div>
-    </div>
-  
+  </div>
+
 
   <!-- <div id="cf2" class="shadow">
   <img class="bottom" src="img/Consel.jpg" />
@@ -109,38 +128,37 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
-    <script>
-      function cycleImages(){
-        var $active = $('#cycler .active');
-          var $next = ($active.next().length > 0) ? $active.next() : $('#cycler img:first');
-          $next.css('z-index',2);//move the next image up the pile
-          $active.fadeOut(1500,function(){//fade out the top image
-          $active.css('z-index',1).show().removeClass('active');//reset the z-index and unhide the image
-              $next.css('z-index',3).addClass('active');//make the next image the top one
-          });
-        }
+  <script>
+    function cycleImages() {
+      var $active = $('#cycler .active');
+      var $next = ($active.next().length > 0) ? $active.next() : $('#cycler img:first');
+      $next.css('z-index', 2); //move the next image up the pile
+      $active.fadeOut(1500, function() { //fade out the top image
+        $active.css('z-index', 1).show().removeClass('active'); //reset the z-index and unhide the image
+        $next.css('z-index', 3).addClass('active'); //make the next image the top one
+      });
+    }
 
-      function plant(){
+    function plant() {
       //     $(document).ready(function(){
       // // run every 7s
       // setInterval('cycleImages()', 1000);
       // })
-        cycleImages();
-      }
+      cycleImages();
+    }
 
-      $('div.slider').slider({
-        orientation: 'vertical',
-           value:[50],
-            min: 0,
-            max: 100,
-            range: 'min',
-            animate: true,
-            step: .1,
-        slide: function (event, ui) {
-        }
-      });
+    $('div.slider').slider({
+      orientation: 'vertical',
+      value: [50],
+      min: 0,
+      max: 100,
+      range: 'min',
+      animate: true,
+      step: .1,
+      slide: function(event, ui) {}
+    });
+  </script>
 
-    </script>
+</body>
 
-  </body>
 </html>
