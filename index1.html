@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#demo img {
+  position:absolute;
+  left:0;
+  -webkit-transition: opacity 3s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+#myImage{
+  /*z-index: -1;*/
+}
+
+#demo img.transparent {
+opacity:0;
+}
+#cf_onclick {
+cursor:pointer;
+}
+
+</style>
+</head>
+<body>
+
+<h1></h1>
+
+<input id="UserInput" type="text" value="setting">
+<button onclick="results()">Plant</button>
+<p id="cf_onclick">Click me to toggle</p>
+<p id="demo"><img class ="top" id="myImage" src="img/Consel.jpg"></p>
+<!-- <img id="myImage" onclick="changeImage()" src="img/Consel.jpg"> -->
+
+<p></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+  $("#cf_onclick").click(function() {
+  $("#demo img.top").toggleClass("transparent");
+});
+});
+
+function results() {
+  var image;
+  var settings = document.getElementById("UserInput").value;
+
+  switch(settings) {
+    case "0":
+    // image =document.getElementById("demo").innerHTML="<img src='img/Tubs_black.jpg' />";
+    image = $('#demo').append("<img src='img/Tubs_black.jpg' />")
+    $( "img" ).addClass( "top" );
+      break;
+    case "1":
+      // image =document.getElementById("demo").innerHTML="<img src='img/Tubs_dark_green.jpg' />";
+      image = $('#demo').append("<img src='img/Tubs_dark_green.jpg' />");
+      $( "img" ).addClass( "top" );
+      break;
+    case "2":
+      // image =document.getElementById("demo").innerHTML="<img src='img/Tubs_green.jpg' />";
+      image = $('#demo').append("<img src='img/Tubs_green.jpg' />");
+      $( "img" ).addClass( "top" );
+      break;
+    case "3":
+      // image =document.getElementById("demo").innerHTML="<img src='img/Tubs_light_green.jpg' />";
+      image = $('#demo').append("<img src='img/Tubs_light_green.jpg' />")
+      $( "img" ).addClass( "top" );
+      break;
+
+    case "4":
+      // image =document.getElementById("demo").innerHTML="<img src='img/Tubs_brown.jpg' />";
+      image = $('#demo').append("<img src='img/Tubs_brown.jpg' />");
+      $( "img" ).addClass( "top" );
+      break;
+    case "5":
+      // image =document.getElementById("demo").innerHTML="<img src='img/Tubs_black.jpg' />";
+      image = $('#demo').append("<img src='img/Tubs_black.jpg' />")
+      $( "img" ).addClass( "top" );
+      break;
+    // add the default keyword here
+  }
+  // $('#demo').append("<img src='img/Tubs_black.jpg' />")
+  // document.getElementById("demo").innerHTML = image;
+}
+
+
+
+</script>
+
+</body>
+</html>

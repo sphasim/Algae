@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #cycler{position:relative;}
+    #cycler img{position:absolute;z-index:1}
+    #cycler img.active{z-index:3}
+  </style>
+</head>
+  <body>
+    <input id="UserInput" type="text" value="setting">
+    <button onclick="plant()">Plant</button>
+    <p id="cf_onclick">Click me to toggle</p>
+    <div id="cycler">
+      <img class="active" src="img/Consel.jpg" alt="My image" />
+      <img src="img/Tubs-black.png" alt="My image" /> 
+      <img src="img/Tubs-dark-green.png" alt="My image" /> 
+      <img src="img/Tubs-green.png" alt="My image" />  
+      <img src="img/Tubs-light-green.png" alt="My image" /> 
+      <img src="img/Tubs-brown.png" alt="My image" />  
+    </div>
+  
+
+  <!-- <div id="cf2" class="shadow">
+  <img class="bottom" src="img/Consel.jpg" />
+  <img class="top" src="img/Tubs_black.jpg" />
+  <img src='img/Tubs_dark_green.jpg' />
+  <img src='img/Tubs_green.jpg' />
+  <img src='img/Tubs_light_green.jpg' />
+  <img src='img/Tubs_brown.jpg' />
+  </div> -->
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <script>
+      function cycleImages(){
+        var $active = $('#cycler .active');
+          var $next = ($active.next().length > 0) ? $active.next() : $('#cycler img:first');
+          $next.css('z-index',2);//move the next image up the pile
+          $active.fadeOut(1500,function(){//fade out the top image
+          $active.css('z-index',1).show().removeClass('active');//reset the z-index and unhide the image
+              $next.css('z-index',3).addClass('active');//make the next image the top one
+          });
+        }
+
+      function plant(){
+      //     $(document).ready(function(){
+      // // run every 7s
+      // setInterval('cycleImages()', 1000);
+      // })
+cycleImages();
+      }
+
+    </script>
+
+  </body>
+</html>
