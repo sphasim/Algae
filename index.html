@@ -74,27 +74,132 @@
   border: none !important;
 }
   </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Algae Game</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/algae_style.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
   <body>
+
     <input id="UserInput" type="text" value="setting">
-    <button onclick="plant()">Plant</button>
-    <p id="cf_onclick">Click me to toggle</p>
     <div id="cycler">
-      <img class="active" src="img/Consel.jpg" alt="My image" />
-      <img src="img/Tubs-black.png" alt="My image" /> 
-      <img src="img/Tubs-dark-green.png" alt="My image" /> 
+      <input type="image" src="img/Grow.png" id="btnImgGrow" />
+      <input type="image" src="img/Harvest.png" id="btnImgHav" />
+
+
+      <!-- <img class="active" src="img/Consel.jpg" alt="My image" /> -->
+      <!-- <img src="img/Tubs-black.png" alt="My image" id = "btnimg"/>  -->
+      <!-- <img src="img/Tubs-dark-green.png" alt="My image" /> 
       <img src="img/Tubs-green.png" alt="My image" />  
       <img src="img/Tubs-light-green.png" alt="My image" /> 
-      <img src="img/Tubs-brown.png" alt="My image" />  
+      <img src="img/Tubs-brown.png" alt="My image" />  --> 
     </div>
-    <div style="position:absolute;left:250px;top:100px;">
+    <!-- <div style="position:absolute;left:250px;top:100px;">
       <div id="slider" class="slider">    
       </div>
+    </div> -->
+<!-- Rahul Code begins -->
+    <div class="wrap">
+      <div class="container">
+          <div class="imageOne image">
+            <!-- <img src="img/test1.png" style="width:100%;" alt=""> -->
+          </div>
+          <div class="imageTwo image">
+            <img src="img/test2.png" style="width:100%;" alt="">
+          </div>
+      </div>
     </div>
+
+    <div id="bottom_div" style="margin-left:30px; height:30%;">
+  <!-- <p>
+  <label for="amount">Donation amount ($50 increments):</label>
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p> -->
+
+  <div id="controls" style="width:60%; border-style: solid;
+    border-width: 8px; background-color: #111d2d;height:95%; display: inline-block;" >
+    <div id="temp_control" style="display:inline-block;" >
+      <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:82px;">
+        <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
+        <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
+        <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
+      </div>
+      <div id="temp_slider_1" style="display:inline-block;">
+        <div><img src="img/TOP.png" style="margin-left:-0.7px;" alt=""></div>
+        <div id="slider" class="temprature_slider" style="margin-top: -6px;"></div>
+        <div><img src="img/LOW.png" style="margin-left:-1.8px;" alt=""></div>
+      </div>
+      <div class="slider_txt" style="margin-left:32px;">
+        <img src="img/temperature.png" alt="" style="display:inline-block; vertical-align:sub;">
+        <span><h1 class="variable_tag" style="display:inline-block;">TEMPERATURE</h1></span>
+      </div>
+    </div>
+    <div id="sun_control" style="display:inline-block;" >
+      <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:98px;">
+        <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
+        <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
+        <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
+      </div>
+      <div id="temp_slider_1" style="display:inline-block;">
+        <div><img src="img/TOP.png" style="margin-left:-0.7px;" alt=""></div>
+        <div id="slider" class="sun_slider" style="margin-top: -6px;"></div>
+        <div><img src="img/LOW.png" style="margin-left:-1.8px;" alt=""></div>
+      </div>
+      <div class="slider_txt" style="margin-left:134px;">
+        <img src="img/sun.png" alt="" style="display:inline-block; vertical-align:sub;">
+        <span><h1 class="variable_tag" style="display:inline-block;">SUN</h1></span>
+      </div>
+    </div>
+    <div id="nutrients_control" style="display:inline-block;" >
+      <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:98px;">
+        <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
+        <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
+        <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
+      </div>
+      <div id="temp_slider_1" style="display:inline-block;">
+        <div><img src="img/TOP.png" style="margin-left:-0.7px;" alt=""></div>
+        <div id="slider" class="nutrients_slider" style="margin-top: -6px;"></div>
+        <div><img src="img/LOW.png" style="margin-left:-1.8px;" alt=""></div>
+      </div>
+      <div class="slider_txt" style="margin-left:78px;">
+        <img src="img/nutrients.png" alt="" style="display:inline-block; vertical-align:sub;">
+        <span><h1 class="variable_tag" style="display:inline-block;">NUTRIENTS</h1></span>
+      </div>
+    </div>
+    <div id="diversity_control" style="display:inline-block;" >
+      <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:98px;">
+        <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
+        <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
+        <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
+      </div>
+      <div id="temp_slider_1" style="display:inline-block;">
+        <div><img src="img/TOP.png" style="margin-left:-0.7px;" alt=""></div>
+        <div id="slider" class="diversity_slider" style="margin-top: -6px;"></div>
+        <div><img src="img/LOW.png" style="margin-left:-1.8px;" alt=""></div>
+      </div>
+      <div class="slider_txt" style="margin-left:78px;">
+        <img src="img/diversity.png" alt="" style="display:inline-block; vertical-align:sub;">
+        <span><h1 class="variable_tag" style="display:inline-block;">DIVERSITY</h1></span>
+      </div>
+    </div>
+  </div>
+
+  <div id="Action_Btns" style="display: inline-block; vertical-align: super; margin-left:200px;">
+
+  <!-- <input type="image" src="img/Grow.png" style="margin-right:40px;" id="btnImgGrow"/>
+  <input type="image" src="img/Harvest.png" id="btnImgHav"  style="cursor:pointer;"/> -->
+
+    <input type="image" src="img/Grow.png" id="btnImgGrow" />
+        <input type="image" src="img/Harvest.png" id="btnImgHav" />
+    
+  </div>
+
+</div>
   
 
   <!-- <div id="cf2" class="shadow">
@@ -107,14 +212,103 @@
   </div> -->
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  </body>
 
     <script>
-    // var settings = document.getElementById("UserInput").value;
-    var Sun = 1;
+
+    var Sun = 0;
     var Temp = 0;
     var Nutrients = 0;
     var diversity = 0;
+
+    $(document).ready(function() {
+
+
+
+$('div.temprature_slider').slider({
+    orientation: 'vertical',
+       value:0,
+        min: 0,
+        step:1,
+        max: 2,
+        range: 'min',
+        animate: true,
+    slide: function (event, ui) {
+        $( "#amount" ).val( "$" + ui.value );
+        //get value set tem value
+        Temp = ui.value;
+        console.log("Value of Temperature slider: "+ ui.value);
+    }
+});
+
+console.log(Temp);
+
+$('div.sun_slider').slider({
+    orientation: 'vertical',
+       value:0,
+        min: 0,
+        step:1,
+        max: 2,
+        range: 'min',
+        animate: true,
+    slide: function (event, ui) {
+        $( "#amount" ).val( "$" + ui.value );
+        Sun = ui.value; 
+        console.log("Value of Sun slider: "+ ui.value);
+    }
+});
+
+$('div.nutrients_slider').slider({
+    orientation: 'vertical',
+       value:0,
+        min: 0,
+        step:1,
+        max: 2,
+        range: 'min',
+        animate: true,
+    slide: function (event, ui) {
+        $( "#amount" ).val( "$" + ui.value );
+        Nutrients = ui.value;
+        console.log("Value of Nutrients slider: "+ ui.value);
+    }
+});
+
+$('div.diversity_slider').slider({
+    orientation: 'vertical',
+       value:0,
+        min: 0,
+        step:1,
+        max: 2,
+        range: 'min',
+        animate: true,
+    slide: function (event, ui) {
+        $( "#amount" ).val( "$" + ui.value );
+        diversity = ui.value;
+        console.log("Value of Diversity slider: "+ ui.value);
+    }
+});
+
+$( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
+
+  $("#growButton").click(function () {
+            alert("harvest");
+        });
+});
+    // var settings = document.getElementById("UserInput").value;
+
+    document.getElementById("btnImgGrow").onclick = function () {
+    console.log("Clicked Grow");
+    testGrow();
+
+    console.log(Sun);
+    console.log(Temp);
+    console.log(Nutrients);
+    console.log(diversity);
+    }
+
+    document.getElementById("btnImgHav").onclick = function () {
+    console.log("Clicked harvest");
+    }
 
     var settings_OOC = "0,1,1,0";
     var settings_NG = "0,1,1,0";
@@ -122,20 +316,22 @@
     var settings_MG = "0,1,1,0";
     var settings_LG = "0,1,1,0";
 
-
-      if (Sun == 2 && Temp == 1 && Nutrients == 1 && diversity == 1 || diversity == 2) {//Subset of Crash
-        optimum_out_come();
-      } else if(Sun == 0){
-        No_Growth();
-      } else if (Sun > 0 && Temp == 2 && Nutrients == 2 && diversity >= 0) {  
-        Crash();
-      }else if (Sun == 1 && Temp == 1 && Nutrients == 1 && diversity > 0) {
-        Medium_Growth();
-      }else if (Sun >= 1 && Temp == 0 && Nutrients == 0 && diversity >= 0) {
-        Low_Growth();
-      }else {
-        console.log("Please be realistic with your settings");
-      };
+      function testGrow(){
+        if (Sun == 2 && Temp == 1 && Nutrients == 1 && diversity == 1 || diversity == 2) {//Subset of Crash
+          optimum_out_come();
+        } else if(Sun == 0){
+          No_Growth();
+        } else if (Sun > 0 && Temp == 2 && Nutrients == 2 && diversity >= 0) {  
+          Crash();
+        }else if (Sun == 1 && Temp == 1 && Nutrients == 1 && diversity > 0) {
+          Medium_Growth();
+        }else if (Sun >= 1 && Temp == 0 && Nutrients == 0 && diversity >= 0) {
+          Low_Growth();
+        }else {
+          console.log("Please be realistic with your settings");
+        };
+      }
+      
 
 
       function optimum_out_come(){
@@ -207,5 +403,5 @@
 
     </script>
 
-  </body>
+  
 </html>
